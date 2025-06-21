@@ -144,10 +144,7 @@ async def analyze_traffic(file: UploadFile = File(...)):
             "anomaly_rate": anomaly_rate,
             "anomaly_scores": anomaly_scores.tolist(),
             "predictions": predictions.tolist(),
-            "features_used": available_features,
-            "feature_importance": dict(zip(available_features, 
-                np.abs(model.feature_importances_) if hasattr(model, 'feature_importances_') 
-                else [0] * len(available_features)))
+            "features_used": available_features
         }
         
         return results
